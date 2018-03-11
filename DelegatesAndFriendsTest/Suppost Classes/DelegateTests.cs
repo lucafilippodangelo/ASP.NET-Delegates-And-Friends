@@ -1,0 +1,7 @@
+﻿namespace AdvancedCSharp
+{
+    class DelegateTests
+    {
+
+    }
+}

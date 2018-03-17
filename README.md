@@ -7,6 +7,23 @@ This project to play a bit with delegates, events and lampda expressions.
 Quick Delegate definition:
 a delegate is a method that knows how to refer(call) other methods.
 
+### //LD TEST002 - nullable
+
+A "Value Type" can't be null! but sometime I need to map a value from Database that could be null, so I can use nullable.
+ - DateTime date = null; //LD I get an error because a value type can't be null
+ - but I can use NULLABLE: "Nullable<DateTime> date2=null;"
+ - - is possible write like this: "DateTime? date2 =null;" 
+ - is impossible assign a nullable to a not nullable
+
+Some properties:
+ - "HasValue"
+ - "GetValueOrDefault"
+
+### //LD TEST006 - generics
+Generics allow you to delay the specification of the data type of programming elements in a class or a method, until it is actually used in the program. In other words, generics allow you to write a class or method that can work with any data type.
+
+You write the specifications for the class or the method, with substitute parameters for data types. When the compiler encounters a constructor for the class or a function call for the method, it generates code to handle the specific data type.
+
 ### //LD TEST007 - delegates
 In the example done he start from a method that process a photo, from this method I call many other method(filters) to set this photo.. the point is: any time that I have to do add a filter, do I need to recompile the method? no!
 
@@ -48,26 +65,6 @@ Extension methods allow to add method to an existing class without:
 - creating a new class that inherits from it
 
 THE MICROSOFT GUIDELINE is don't use those before to try to update the class, or inheritance.
-
-### //LD TEST002 - nullable
-
-A "Value Type" can't be null! but sometime I need to map a value from Database that could be null, so I can use nullable.
- - DateTime date = null; //LD I get an error because a value type can't be null
- - but I can use NULLABLE: "Nullable<DateTime> date2=null;"
- - - is possible write like this: "DateTime? date2 =null;" 
- - is impossible assign a nullable to a not nullable
-
-Some properties:
- - "HasValue"
- - "GetValueOrDefault"
-
-
-
-
-### //LD TEST006 - generics
-Generics allow you to delay the specification of the data type of programming elements in a class or a method, until it is actually used in the program. In other words, generics allow you to write a class or method that can work with any data type.
-
-You write the specifications for the class or the method, with substitute parameters for data types. When the compiler encounters a constructor for the class or a function call for the method, it generates code to handle the specific data type.
 
 ### Resources
 - multithreading

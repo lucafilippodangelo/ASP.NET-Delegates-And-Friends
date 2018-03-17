@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AdvancedCSharp.UsefulClasses
+namespace DelegatesAndFriendsTest.UsefulClasses
 {
     public class VideoEventArgs : EventArgs 
     {

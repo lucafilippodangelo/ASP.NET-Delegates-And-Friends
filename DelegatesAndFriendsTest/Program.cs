@@ -10,10 +10,9 @@ namespace DelegatesAndFriendsTest
         {
             Console.WriteLine("Hello World!");
             Test008();
-        }//LD cose main
+            Console.ReadKey();
+        }//LD Main
 
-
-    
         #region region testing methods
 
         //LD linq
@@ -23,7 +22,7 @@ namespace DelegatesAndFriendsTest
             aLinqTestInstance.LastExtensionMethod();
         }
 
-        //LD nullable
+        //LD TEST002 - nullable
         private static void Test002()
         {
             NullableTests nullablin = new NullableTests();
@@ -84,7 +83,7 @@ namespace DelegatesAndFriendsTest
             }
         }
 
-        //LD generics
+        //LD TEST006 - generics
         private static void Test006()
         {
             //if for example I have two list, one of "int" and the second of "Book", and I want 
@@ -99,7 +98,7 @@ namespace DelegatesAndFriendsTest
             books.Add(new Book());
         }
 
-        //LD delegates
+        //LD TEST007 - delegates
         private static void Test007()
         {
             var aPhotoProcessorInstance = new PhotoProcessor();
@@ -111,12 +110,13 @@ namespace DelegatesAndFriendsTest
             
             //LD now I add a POINTER
             filterHandler += filters.ApplyContrast;
-            //LD THEN in the "processor" method we pass the "filterHandler" DELEGATE
+
+            //LD then in the "processor" method we pass the "filterHandler"(delegate)
             //that has correlated with him the methods to call
             aPhotoProcessorInstance.Process(filterHandler);
         }
 
-        //LD lampda expression 
+        //LD TEST008 lampda expression, predicate
         private static void Test008()
         {
             // A, lampdaExpression sintax: "args => expression" , an example is "number => number*number"
@@ -127,20 +127,46 @@ namespace DelegatesAndFriendsTest
 
             //--------------------------------------------------------
 
-            //// A, we want return the books cheaper than 10 dolars
-            //// B, the traditional way:
-            //var books = new BookRepository().GetBooks();
-            //// C, a PREDICATE its a DELEGATE that point to a method that get a "book" in this case and RETURN a boolean that say if a GIVEN CONDITION is satisfied
-            //// in this case I can call it like this:
-            //var cheapBooks = books.FindAll(IsCheaperThan10Dollars);
-            //// D, by using LAMPDA EXPRESSION
-            //var cheapBooks2 = books.FindAll(b => b.price < 10);
+            // A, we want return the books cheaper than 10 dolars
+            // B, the traditional way:
+            var books = new BookRepository().GetBooks();
+            // C, a PREDICATE its a DELEGATE that point to a method that get a "book" in this case and RETURN 
+            // a boolean that say if a given condition is satisfied
+            // in this case I can call it like this:
+            var cheapBooks = books.FindAll(IsCheaperThan10Dollars);
+            // D, by using LAMPDA EXPRESSION
+            var cheapBooks2 = books.FindAll(b => b.price < 10);
         }
 
+        //LD TEST009 events and delegates
         private static void Test009()
-        { }
+        {
+            //LD STEP 0 - call the class
+            var video = new Video() { Title = "Video 1" };
+            var videoEncoder = new VideoEncoder(); //LD is the Publisher
+
+            //LD STEP 5 - create a referiment to Subscriber
+            var mailService = new MailService(); //LD is the first Subscriber
+            var messageService = new MessageService(); //LD is the second Subscriber
+
+            //LD STEP 6 - let's do the subscription of the method to the specific EVENT
+            videoEncoder.VideoEncoded += mailService.OnVideoEncoded;
+            videoEncoder.VideoEncoded += messageService.OnVideoEncoded;
+
+            //LD STEP 7 
+            videoEncoder.Encode(video);
+            //LD note that the PUBLICHER never change
+        }
 
         #endregion
 
+        #region region support methods
+
+        //LD PREDICATE: this method example of a simple predicate returning a boolean
+        static bool IsCheaperThan10Dollars(Book book1) {
+            return book1.price < 10;
+        }
+
+        #endregion
     }
 }

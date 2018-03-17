@@ -1,4 +1,4 @@
-﻿namespace AdvancedCSharp.UsefulClasses
+﻿namespace DelegatesAndFriendsTest.UsefulClasses
 {
     public class Video
     {

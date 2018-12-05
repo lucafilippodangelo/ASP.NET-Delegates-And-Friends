@@ -6,12 +6,11 @@ namespace DelegatesAndFriendsTest.UsefulClasses
     class PhotoProcessor
     {
         //LD this DELEGATE is a pointer for methods that return a "void" and take a type "Photo"
-        public delegate void PhotoFilterHandler(Photo photo); // not used, instead:
-        //LD I CAN USE THE SHORT VERSION: "Action<Photo>"
+        public delegate void PhotoFilterHandler(Photo photo); // not used, I CAN USE THE SHORT VERSION: "Action<Photo>". SEE BELOW
 
-        public void Process(Action<Photo> filterHandler)//BEFORE: public void Process(PhotoFilterHandler filterHandler)
+        public void Process(Action<Photo> filterHandler)
         {
-            var photo = new Photo();
+            var photo = new Photo(); //LD creation of an instance of photo just for test
 
             ////LD with no delegates we have to apply the filters on server side
             //var filters = new photoFilter();

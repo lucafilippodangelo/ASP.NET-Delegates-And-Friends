@@ -9,7 +9,9 @@ namespace DelegatesAndFriendsTest
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+            Test007();
             Test008();
+            Test009();
             Console.ReadKey();
         }//LD Main
 
@@ -101,18 +103,19 @@ namespace DelegatesAndFriendsTest
         //LD TEST007 - delegates
         private static void Test007()
         {
-            var aPhotoProcessorInstance = new PhotoProcessor();
-            var filters = new photoFilter();
+            
+            var filters = new photoFilter(); //LD this in a class with methods
 
-            //LD I need to create an instance of the DELEGATE and CONNECT with it the method that I want to call
+            //LD I need to create an instance of the DELEGATE and CONNECT to it the method with same signature I'm going to be called by the delegate
             // in this case "ApplyBrightness" that has the same signature of the delegate "Action<Photo>" named "filterHandler" 
-            Action<Photo> filterHandler = filters.ApplyBrightness;// BEFORE: PhotoProcessor.PhotoFilterHandler filterHandler = filters.ApplyBrightness;
+            Action<Photo> filterHandler = filters.ApplyBrightness;
             
             //LD now I add a POINTER
             filterHandler += filters.ApplyContrast;
 
             //LD then in the "processor" method we pass the "filterHandler"(delegate)
             //that has correlated with him the methods to call
+            var aPhotoProcessorInstance = new PhotoProcessor();
             aPhotoProcessorInstance.Process(filterHandler);
         }
 
@@ -130,8 +133,8 @@ namespace DelegatesAndFriendsTest
             // A, we want return the books cheaper than 10 dolars
             // B, the traditional way:
             var books = new BookRepository().GetBooks();
-            // C, a PREDICATE its a DELEGATE that point to a method that get a "book" in this case and RETURN 
-            // a boolean that say if a given condition is satisfied
+
+            // C, a PREDICATE its a DELEGATE that point to a method that get a "book" in this case and RETURN a boolean that say if a given condition is satisfied
             // in this case I can call it like this:
             var cheapBooks = books.FindAll(IsCheaperThan10Dollars);
             // D, by using LAMPDA EXPRESSION

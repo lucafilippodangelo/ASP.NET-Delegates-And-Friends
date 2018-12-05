@@ -7,9 +7,11 @@ namespace AdvancedCSharp
         public void launchTests()
         {
 
-            //DateTime date = null; //LD I get an error because a value type can't be null
+            //LD TEST ONE: I get an error because a value type can't be null
+            //DateTime date = null; 
 
-            DateTime? date2 =null; //LD I don't get a value 
+            //LD  TEST TWO: I don't get error 
+            DateTime? date2 =null;
 
         }
 

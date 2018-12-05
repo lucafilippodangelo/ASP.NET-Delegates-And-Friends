@@ -665,29 +665,23 @@
   },
   "packageFolders": {
     "C:\\Users\\ldazu\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
-      "projectUniqueName": "C:\\Users\\ldazu\\Source\\Repos\\Git\\ASP.NET-Delegates-And-Friends\\DelegatesAndFriendsTest\\DelegatesAndFriendsTest.csproj",
+      "projectUniqueName": "C:\\Users\\ldazu\\source\\repos\\ASP.NET-Delegates-And-Friends\\DelegatesAndFriendsTest\\DelegatesAndFriendsTest.csproj",
       "projectName": "DelegatesAndFriendsTest",
-      "projectPath": "C:\\Users\\ldazu\\Source\\Repos\\Git\\ASP.NET-Delegates-And-Friends\\DelegatesAndFriendsTest\\DelegatesAndFriendsTest.csproj",
+      "projectPath": "C:\\Users\\ldazu\\source\\repos\\ASP.NET-Delegates-And-Friends\\DelegatesAndFriendsTest\\DelegatesAndFriendsTest.csproj",
       "packagesPath": "C:\\Users\\ldazu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ldazu\\Source\\Repos\\Git\\ASP.NET-Delegates-And-Friends\\DelegatesAndFriendsTest\\obj\\",
+      "outputPath": "C:\\Users\\ldazu\\source\\repos\\ASP.NET-Delegates-And-Friends\\DelegatesAndFriendsTest\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
         "C:\\Users\\ldazu\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"

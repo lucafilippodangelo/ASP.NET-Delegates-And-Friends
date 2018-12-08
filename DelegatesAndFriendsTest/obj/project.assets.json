@@ -196,6 +196,19 @@
         "build": {
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
+      },
+      "ExtensionMethodsLd/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.0",
+        "dependencies": {
+          "Microsoft.NETCore.App": "2.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ExtensionMethodsLd.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ExtensionMethodsLd.dll": {}
+        }
       }
     }
   },
@@ -656,10 +669,16 @@
         "netstandard.library.2.0.0.nupkg.sha512",
         "netstandard.library.nuspec"
       ]
+    },
+    "ExtensionMethodsLd/1.0.0": {
+      "type": "project",
+      "path": "../ExtensionMethods/ExtensionMethodsLd.csproj",
+      "msbuildProject": "../ExtensionMethods/ExtensionMethodsLd.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
+      "ExtensionMethodsLd >= 1.0.0",
       "Microsoft.NETCore.App >= 2.0.0"
     ]
   },
@@ -692,7 +711,11 @@
       },
       "frameworks": {
         "netcoreapp2.0": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\ldazu\\source\\repos\\ASP.NET-Delegates-And-Friends\\ExtensionMethods\\ExtensionMethodsLd.csproj": {
+              "projectPath": "C:\\Users\\ldazu\\source\\repos\\ASP.NET-Delegates-And-Friends\\ExtensionMethods\\ExtensionMethodsLd.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

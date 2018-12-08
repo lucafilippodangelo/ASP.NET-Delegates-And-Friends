@@ -1,6 +1,8 @@
 ﻿using AdvancedCSharp;
 using DelegatesAndFriendsTest.UsefulClasses;
 using System;
+using System.Linq;
+using ExtensionMethodsLd;
 
 namespace DelegatesAndFriendsTest
 {
@@ -9,9 +11,10 @@ namespace DelegatesAndFriendsTest
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
-            Test007();
-            Test008();
-            Test009();
+            //Test007();
+            //Test008();
+            //Test009();
+            Test010();
             Console.ReadKey();
         }//LD Main
 
@@ -24,12 +27,14 @@ namespace DelegatesAndFriendsTest
             aLinqTestInstance.LastExtensionMethod();
         }
 
+
         //LD TEST002 - nullable
         private static void Test002()
         {
             NullableTests nullablin = new NullableTests();
             nullablin.launchTests();
         }
+
 
         //LD dynamic
         private static void Test003()
@@ -47,6 +52,7 @@ namespace DelegatesAndFriendsTest
             dynamic b = 2;
             var c = a + b;
         }
+
 
         //LD exceptions
         private static void Test004()
@@ -70,6 +76,7 @@ namespace DelegatesAndFriendsTest
             }
         }
 
+
         //LD custom exception
         private static void Test005()
         {
@@ -85,6 +92,7 @@ namespace DelegatesAndFriendsTest
             }
         }
 
+
         //LD TEST006 - generics
         private static void Test006()
         {
@@ -99,6 +107,7 @@ namespace DelegatesAndFriendsTest
             var books = new GenericListTest<Book>();
             books.Add(new Book());
         }
+
 
         //LD TEST007 - delegates
         private static void Test007()
@@ -118,6 +127,7 @@ namespace DelegatesAndFriendsTest
             var aPhotoProcessorInstance = new PhotoProcessor();
             aPhotoProcessorInstance.Process(filterHandler);
         }
+
 
         //LD TEST008 lampda expression, predicate
         private static void Test008()
@@ -141,6 +151,7 @@ namespace DelegatesAndFriendsTest
             var cheapBooks2 = books.FindAll(b => b.price < 10);
         }
 
+
         //LD TEST009 events and delegates
         private static void Test009()
         {
@@ -161,6 +172,25 @@ namespace DelegatesAndFriendsTest
             //LD note that the PUBLICHER never change
         }
 
+
+        //LD TEST010 Extension Methods
+        /// <summary>
+        /// 1) I did declare another project having static class "MyExtensions" and static method "concatBookInfo", to be noticed the use of this. 
+        ///    The method "concatBookInfo" extend the functionality of the class "BookLd"
+        /// 2) in "Test010" I call the extension method as it was a method of the class.   
+        /// </summary>
+        private static void Test010()
+        {
+       
+            //LD will write an extension method for the existing class "Book.cs". I want to concatenate all the informations related with a book
+            BookLd aNewBook = new BookLd();
+            aNewBook.title = "I Malavoglia";
+            aNewBook.price = 10;
+
+            System.Console.WriteLine(aNewBook.concatBookInfo());
+        }
+
+        
         #endregion
 
         #region region support methods

@@ -58,21 +58,22 @@ How to use delagates in pubblicher/subscriber pattern
 
 ### //LD TEST010 extensions methods
 
-**I have still to recap on the C# in a nutshell chapter and write some demo code**
+**Definition**: Extension methods enable you to "add" methods to existing types without creating a new derived type, recompiling, or otherwise modifying the original type. Extension methods are a special kind of static method, but they are called as if they were instance methods on the extended type. 
 
 Extension methods allow to add method to an existing class without:
-- changing its source code, so recompile it or
+- changing its source code, so recompile it 
+or
 - creating a new class that inherits from it
 
-THE MICROSOFT GUIDELINE is don't use those before to try to update the class, or inheritance.
 
 ### Resources
 - multithreading
   - https://www.tutorialspoint.com/csharp/csharp_multithreading.htm
-  - mutithreading projects attached
   - https://weblogs.asp.net/dixin/functional-csharp-asynchronous-function
 - reflection
   - https://www.tutorialspoint.com/csharp/csharp_reflection.htm
 - generics
   - https://www.tutorialspoint.com/csharp/csharp_generics.htm
-- https://www.codeproject.com/Articles/47887/C-Delegates-Anonymous-Methods-and-Lambda-Expressio
+  - https://www.codeproject.com/Articles/47887/C-Delegates-Anonymous-Methods-and-Lambda-Expressio
+- Extension Methods
+  https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/extension-methods

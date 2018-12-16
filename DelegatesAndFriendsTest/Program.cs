@@ -190,7 +190,15 @@ namespace DelegatesAndFriendsTest
             System.Console.WriteLine(aNewBook.concatBookInfo());
         }
 
-        
+        /// <summary>
+        /// 
+        /// </summary>
+        private static void Test011()
+        {
+
+
+        }
+
         #endregion
 
         #region region support methods

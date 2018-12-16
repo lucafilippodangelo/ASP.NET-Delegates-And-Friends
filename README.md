@@ -65,6 +65,12 @@ Extension methods allow to add method to an existing class without:
 or
 - creating a new class that inherits from it
 
+### //LD TEST011 yield
+**Definition**: Yield keyword helps us to do custom stateful iteration over .NET collections. There are two scenarios where “yield” keyword is useful:
+  - Customized iteration through a collection without creating a temporary collection.
+  - Stateful iteration.
+
+Scenario One, 
 
 ### Resources
 - multithreading
@@ -76,4 +82,7 @@ or
   - https://www.tutorialspoint.com/csharp/csharp_generics.htm
   - https://www.codeproject.com/Articles/47887/C-Delegates-Anonymous-Methods-and-Lambda-Expressio
 - Extension Methods
-  https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/extension-methods
+  - https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/extension-methods
+- yield
+  - https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/yield
+  - https://www.codeproject.com/Articles/575713/%2FArticles%2F575713%2FWhat-is-the-use-of-csharp-Yield-keyword

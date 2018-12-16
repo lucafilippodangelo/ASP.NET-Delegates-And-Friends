@@ -70,7 +70,16 @@ or
   - Customized iteration through a collection without creating a temporary collection.
   - Stateful iteration.
 
-Scenario One, 
+//LD Test011_001 - Assuming I have methods to fill, loop on a collection. A caller call those methods and display values at consolle.
+
+Scenario One, "Customized iteration through a collection". Need to filter data by condition
+  - //LD Test011_002, standard approach
+  - //LD Test011_003, yield approach, I get rid of the temp collection
+    - “Yield” keyword will return back the control to the caller, the caller will do his work and re-enter the function from where he had left and continue iteration from that point onwards. In other words “yield” keyword moves control of the program to and fro between caller and the collection.
+
+Scenario Two, "Running Total". Display running total of the above collection.
+  - //LD Test011_004
+
 
 ### Resources
 - multithreading

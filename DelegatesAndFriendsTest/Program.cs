@@ -3,6 +3,7 @@ using DelegatesAndFriendsTest.UsefulClasses;
 using System;
 using System.Linq;
 using ExtensionMethodsLd;
+using System.Collections.Generic;
 
 namespace DelegatesAndFriendsTest
 {
@@ -14,7 +15,8 @@ namespace DelegatesAndFriendsTest
             //Test007();
             //Test008();
             //Test009();
-            Test010();
+            //Test010();
+            Test011();
             Console.ReadKey();
         }//LD Main
 
@@ -195,9 +197,82 @@ namespace DelegatesAndFriendsTest
         /// </summary>
         private static void Test011()
         {
+            //LD Test011_001 - fill values
+            DisplayValues(simpleCaller(), "Simple Caller");
 
+            //LD Test011_002
+            DisplayValues(calleraskFilteredData(), "Filtered Data Caller");
 
+            //LD Test011_003
+            DisplayValues(calleraskFilteredDataYield(), "Filtered Data Caller Yield");
+
+            //LD Test011_004
+            DisplayValues(RunningTotal(), "Running Total");
+
+            Console.ReadLine();
         }
+
+        #region Test011 Support Methods
+
+        static List<int> MyList = new List<int>();
+
+        static void FillValues()
+        {
+            MyList.Add(1);
+            MyList.Add(2);
+            MyList.Add(3);
+            MyList.Add(4);
+            MyList.Add(5);
+        }
+
+        static void DisplayValues(IEnumerable<int> aList, String prefixText)
+        {
+            foreach (int i in aList)
+            {
+                Console.WriteLine(prefixText + " -> " + i);
+            }
+        }
+
+        static List<int> simpleCaller()
+        {
+            FillValues();
+            return MyList;
+        }
+
+        static List<int> calleraskFilteredData()
+        {
+            List<int> temp = new List<int>();
+            foreach (int i in MyList)
+            {
+                if (i > 3)
+                {
+                    temp.Add(i);
+                }
+            }
+            return temp;
+        }
+
+        static IEnumerable<int> calleraskFilteredDataYield()
+        {
+            List<int> temp = new List<int>();
+            foreach (int i in MyList)
+            {
+                if (i > 3) yield return i; //LD at any yield the framework does a return. I can avoid temp Collections to achieve the same.
+            }
+        }
+
+        static IEnumerable<int> RunningTotal()
+        {
+            int runningtotal = 0;
+            foreach (int i in MyList)
+            {
+                runningtotal += i;
+                yield return (runningtotal);
+
+            }
+        }
+
+        #endregion
 
         #endregion
 

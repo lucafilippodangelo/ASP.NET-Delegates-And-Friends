@@ -95,3 +95,5 @@ Scenario Two, "Running Total". Display running total of the above collection.
 - yield
   - https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/yield
   - https://www.codeproject.com/Articles/575713/%2FArticles%2F575713%2FWhat-is-the-use-of-csharp-Yield-keyword
+- func
+  - https://docs.microsoft.com/en-us/dotnet/api/system.func-2?view=netframework-4.7.2

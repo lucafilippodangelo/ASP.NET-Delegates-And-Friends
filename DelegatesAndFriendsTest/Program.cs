@@ -4,6 +4,7 @@ using System;
 using System.Linq;
 using ExtensionMethodsLd;
 using System.Collections.Generic;
+using DelegatesAndFriendsTest.Suppost_Classes;
 
 namespace DelegatesAndFriendsTest
 {
@@ -16,7 +17,8 @@ namespace DelegatesAndFriendsTest
             //Test008();
             //Test009();
             //Test010();
-            Test011();
+            //Test011();
+            Test012();
             Console.ReadKey();
         }//LD Main
 
@@ -193,7 +195,7 @@ namespace DelegatesAndFriendsTest
         }
 
         /// <summary>
-        /// 
+        /// //LD TEST011 yield
         /// </summary>
         private static void Test011()
         {
@@ -273,6 +275,28 @@ namespace DelegatesAndFriendsTest
         }
 
         #endregion
+
+        /// <summary>
+        /// //LDTEST012 Implicit Conversions
+        /// 
+        /// The implicit keyword is used to declare an implicit user-defined type conversion operator. 
+        /// Use it to enable implicit conversions between a user-defined type and another type, 
+        /// if the conversion is guaranteed not to cause a loss of data.
+        /// </summary>
+        private static void Test012()
+        {
+
+            UserDefinedType udt = new UserDefinedType(5);
+
+            //This call invokes the implicit "double" operator passing in input the user defined type
+            double num = udt;
+
+            //VICEVERSA, This call invokes the implicit "UserDefinedType" operator, I want "UserDefinedType" starting from the int "5"
+            UserDefinedType udt2 = 5;
+
+            Console.WriteLine("num = {0} dig2 = {1}", num, udt2.aNumber);
+            Console.ReadLine();
+        }
 
         #endregion
 

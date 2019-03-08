@@ -80,6 +80,8 @@ Scenario One, "Customized iteration through a collection". Need to filter data b
 Scenario Two, "Running Total". Display running total of the above collection.
   - //LD Test011_004
 
+### //LD TEST012 Implicit Conversion
+
 
 ### Resources
 - multithreading
@@ -97,3 +99,5 @@ Scenario Two, "Running Total". Display running total of the above collection.
   - https://www.codeproject.com/Articles/575713/%2FArticles%2F575713%2FWhat-is-the-use-of-csharp-Yield-keyword
 - func
   - https://docs.microsoft.com/en-us/dotnet/api/system.func-2?view=netframework-4.7.2
+- Implicit Conversion
+  - https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/implicit

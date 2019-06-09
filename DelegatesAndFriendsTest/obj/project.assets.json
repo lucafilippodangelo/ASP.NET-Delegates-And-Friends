@@ -698,11 +698,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ldazu\\Source\\Repos\\ASP.NET-Delegates-And-Friends\\DelegatesAndFriendsTest\\DelegatesAndFriendsTest.csproj",
+      "projectUniqueName": "C:\\Users\\ldazu\\OneDrive\\Desktop\\NewRepo\\DelegatesAndFriends\\DelegatesAndFriendsTest\\DelegatesAndFriendsTest.csproj",
       "projectName": "DelegatesAndFriendsTest",
-      "projectPath": "C:\\Users\\ldazu\\Source\\Repos\\ASP.NET-Delegates-And-Friends\\DelegatesAndFriendsTest\\DelegatesAndFriendsTest.csproj",
+      "projectPath": "C:\\Users\\ldazu\\OneDrive\\Desktop\\NewRepo\\DelegatesAndFriends\\DelegatesAndFriendsTest\\DelegatesAndFriendsTest.csproj",
       "packagesPath": "C:\\Users\\ldazu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ldazu\\Source\\Repos\\ASP.NET-Delegates-And-Friends\\DelegatesAndFriendsTest\\obj\\",
+      "outputPath": "C:\\Users\\ldazu\\OneDrive\\Desktop\\NewRepo\\DelegatesAndFriends\\DelegatesAndFriendsTest\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -721,8 +721,8 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "C:\\Users\\ldazu\\Source\\Repos\\ASP.NET-Delegates-And-Friends\\ExtensionMethods\\ExtensionMethodsLd.csproj": {
-              "projectPath": "C:\\Users\\ldazu\\Source\\Repos\\ASP.NET-Delegates-And-Friends\\ExtensionMethods\\ExtensionMethodsLd.csproj"
+            "C:\\Users\\ldazu\\OneDrive\\Desktop\\NewRepo\\DelegatesAndFriends\\ExtensionMethods\\ExtensionMethodsLd.csproj": {
+              "projectPath": "C:\\Users\\ldazu\\OneDrive\\Desktop\\NewRepo\\DelegatesAndFriends\\ExtensionMethods\\ExtensionMethodsLd.csproj"
             }
           }
         }

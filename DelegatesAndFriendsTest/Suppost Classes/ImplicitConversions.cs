@@ -9,6 +9,7 @@ namespace DelegatesAndFriendsTest.Suppost_Classes
     {
         //LD property and constructor
         public int aNumber { get; set; }
+
         public UserDefinedType(int ANumber)
         {
             aNumber = ANumber;

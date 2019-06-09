@@ -24,6 +24,9 @@ Generics allow you to delay the specification of the data type of programming el
 
 You write the specifications for the class or the method, with substitute parameters for data types. When the compiler encounters a constructor for the class or a function call for the method, it generates code to handle the specific data type.
 
+### //LD TEST006Bis - generics
+Second example on generics with interfaces
+
 ### //LD TEST007 - delegates
 In the example done he start from a method that process a photo, from this method I call many other method(filters) to set this photo.. the point is: any time that I have to do add a filter, do I need to recompile the method? no!
 

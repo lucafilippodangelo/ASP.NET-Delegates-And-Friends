@@ -5,6 +5,7 @@ using System.Linq;
 using ExtensionMethodsLd;
 using System.Collections.Generic;
 using DelegatesAndFriendsTest.Suppost_Classes;
+using DelegatesAndFriendsTest.GenericsSupportClasses;
 
 namespace DelegatesAndFriendsTest
 {
@@ -18,7 +19,9 @@ namespace DelegatesAndFriendsTest
             //Test009();
             //Test010();
             //Test011();
-            Test012();
+            //Test012();
+
+            Test006Bis();
             Console.ReadKey();
         }//LD Main
 
@@ -97,12 +100,14 @@ namespace DelegatesAndFriendsTest
         }
 
 
-        //LD TEST006 - generics
+
+        /// <summary>
+        /// LD TEST006 - generics
+        /// if for example I have two list, one of "int" and the second of "Book", and I want 
+        /// just ADD AN ITEM IN BOTH THE LISTS, I DON'T NEED OF TWO SEPARATED CLASSES
+        /// </summary>
         private static void Test006()
         {
-            //if for example I have two list, one of "int" and the second of "Book", and I want 
-            //just ADD AN ITEM IN BOTH THE LISTS, I DON'T NEED OF TWO SEPARATED CLASSES
-
             //here we define the type of list, IT'S THE SAME LIKE WE USUALLY DO HERE: "var bla = new List<int>();"
             var numbers = new GenericListTest<int>(); 
             numbers.Add(23);// automatically it's suggested to pass an "int" parameter
@@ -112,6 +117,42 @@ namespace DelegatesAndFriendsTest
             books.Add(new Book());
         }
 
+        /// <summary>
+        /// Example of a good use of generics
+        /// the class "Car" will have defined at runtime two chain of nested objects.
+        /// I can define the object subtypes as I prefer at runtime.
+        /// I can pass a generic "ICar" as a parm in any method and use the operator "is" to detect inner object type
+        /// </summary>
+        private static void Test006Bis()
+        {
+            Car<RubberTyre, Chassy> carRubberTyreChassy = new Car<RubberTyre, Chassy> {   ACarAttribute = "some car attribute",
+                                                                                          aChassy = new Chassy { Model = "chassy model" } ,
+                                                                                          aTyre = new RubberTyre {  Model = "rubber tyre model"} };
+
+            Car<SpecialTyre,SpecialChassy> carRubberSpecialTyreSpecialChassy = new Car<SpecialTyre, SpecialChassy>
+                                                                                        {
+                                                                                            ACarAttribute = "some car attribute",
+                                                                                            aChassy = new SpecialChassy { Model = "chassy model" , MaterialComposition = "special tyre material Composition"  },
+                                                                                            aTyre = new SpecialTyre { Model = "rubber tyre model" , MaterialComposition = "special chassy material Composition" }
+                                                                                        };
+
+            ss(carRubberTyreChassy);
+            ss(carRubberSpecialTyreSpecialChassy);
+
+        }
+
+        public static void ss(ICar test)
+        {
+            if (test is Car<RubberTyre, Chassy>)
+            {
+                Console.WriteLine("That is a: " + "Car<RubberTyre, Chassy>");
+            }
+            if (test is Car<SpecialTyre, SpecialChassy>)
+            {
+                Console.WriteLine("That is a: " + "Car<SpecialTyre,SpecialChassy> ");
+            }
+
+        }
 
         //LD TEST007 - delegates
         private static void Test007()
@@ -282,6 +323,7 @@ namespace DelegatesAndFriendsTest
         /// The implicit keyword is used to declare an implicit user-defined type conversion operator. 
         /// Use it to enable implicit conversions between a user-defined type and another type, 
         /// if the conversion is guaranteed not to cause a loss of data.
+        /// https://www.newsfilter.org/gallery/redhead-beauty-isnt-as-innocent-as-she-looks-207484
         /// </summary>
         private static void Test012()
         {

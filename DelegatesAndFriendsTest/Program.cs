@@ -194,6 +194,44 @@ namespace DelegatesAndFriendsTest
             var cheapBooks = books.FindAll(IsCheaperThan10Dollars);
             // D, by using LAMPDA EXPRESSION
             var cheapBooks2 = books.FindAll(b => b.price < 10);
+
+            //--------------------------------------------------------
+
+            //TEST ON GENERIC
+            string doSomething<T>(T theInput)
+            {
+                return theInput.GetType().ToString();
+            }
+            var ddd = doSomething(1);
+
+
+            //TEST ON FUNC (delegate pointng to a method)
+            Func<int, int> myExp2 = (n) => n * n;
+            var yy = myExp2(5);
+
+
+            //TEST ON NORMAL FUNC 
+            Func<int, int> square = x => x * x;
+            var aNumber = square(5);
+
+            //LD I will package my expression "x => x * x" as an object 
+            System.Linq.Expressions.Expression<Func<int, int>> myExpression = x => x * x;
+            var anExpression = myExpression;
+
+
+            int[] numbers = { 2, 3, 4, 5 };
+            var squaredNumbers = numbers.Select(myExpression.Compile()); //apply for each number the expression
+            var squaredNumbersTwo = numbers.Select(x => x * x); //same as above
+
+            var dd = string.Join(" ", squaredNumbers);
+
+            List<int> aList = new List<int>() { 1, 2, 3 };
+            var hyjy = aList.Select(myExpression.Compile());
+            foreach (int anInt in hyjy)
+            {
+                var luca = anInt; //Output -> 1,4,9
+            }
+
         }
 
 

@@ -14,12 +14,12 @@ namespace DelegatesAndFriendsTest
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
-            Test007();
-            Test008();
-            Test009();
+            //Test007();
+            //Test008();
+            //Test009();
             //Test010();
             //Test011();
-            //Test012();
+            Test012();
 
             //Test006Bis();
             Console.ReadKey();
@@ -355,7 +355,8 @@ namespace DelegatesAndFriendsTest
 
             UserDefinedType udt = new UserDefinedType(5);
 
-            //This call invokes the implicit "double" operator passing in input the user defined type
+            //LD with the call below we are looking to receive a "double" and we are passing a "UserDefinedType"
+            // the framework will automatically call the method with that signature
             double num = udt;
 
             //VICEVERSA, This call invokes the implicit "UserDefinedType" operator, I want "UserDefinedType" starting from the int "5"

@@ -6,7 +6,8 @@ namespace DelegatesAndFriendsTest.UsefulClasses
     class PhotoProcessor
     {
         //LD this DELEGATE is a pointer for methods that return a "void" and take a type "Photo"
-        public delegate void PhotoFilterHandler(Photo photo); // not used, I CAN USE THE SHORT VERSION: "Action<Photo>". SEE BELOW
+        // not used, I CAN USE THE SHORT VERSION: "Action<Photo>". SEE BELOW
+        //public delegate void PhotoFilterHandler(Photo photo); 
 
         public void Process(Action<Photo> filterHandler)
         {
@@ -19,7 +20,8 @@ namespace DelegatesAndFriendsTest.UsefulClasses
             //filters.Resize(photo);
 
             ////LD here we apply the filters on client side
-            //WE JUST CALL THE DELEGATE RECEIVED
+
+            //STEP005 all the methods attached to the delegate are called
             filterHandler(photo);// we RECEIVE the DELEGATE INSTANCE to the method, 
             // this code don't know which filter will be applied
             // THE RESPONSABILITY TO APPLY FILTERS IS OF THE CLIENT, and in this case 

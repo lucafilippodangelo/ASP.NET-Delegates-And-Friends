@@ -14,14 +14,14 @@ namespace DelegatesAndFriendsTest
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
-            //Test007();
-            //Test008();
-            //Test009();
+            Test007();
+            Test008();
+            Test009();
             //Test010();
             //Test011();
             //Test012();
 
-            Test006Bis();
+            //Test006Bis();
             Console.ReadKey();
         }//LD Main
 
@@ -157,18 +157,17 @@ namespace DelegatesAndFriendsTest
         //LD TEST007 - delegates
         private static void Test007()
         {
-            
-            var filters = new photoFilter(); //LD this in a class with methods
+            //STEP001 this in a class with methods
+            var filters = new photoFilter();
 
-            //LD I need to create an instance of the DELEGATE and CONNECT to it the method with same signature I'm going to be called by the delegate
-            // in this case "ApplyBrightness" that has the same signature of the delegate "Action<Photo>" named "filterHandler" 
+            //STEP002 as a first step I'm assigning the method "ApplyBrightness" to the delegate "Action<Photo>". They both have the same signature.
+            //note that "ApplyBrightness" takes in input the same type specified in the delegate
             Action<Photo> filterHandler = filters.ApplyBrightness;
             
-            //LD now I add a POINTER
+            //STEP003 adding to the delegate a second method with identical signature
             filterHandler += filters.ApplyContrast;
 
-            //LD then in the "processor" method we pass the "filterHandler"(delegate)
-            //that has correlated with him the methods to call
+            //STEP004 then I pass to an instance to a dummy class my delegate
             var aPhotoProcessorInstance = new PhotoProcessor();
             aPhotoProcessorInstance.Process(filterHandler);
         }
@@ -357,11 +356,6 @@ namespace DelegatesAndFriendsTest
 
         /// <summary>
         /// //LDTEST012 Implicit Conversions
-        /// 
-        /// The implicit keyword is used to declare an implicit user-defined type conversion operator. 
-        /// Use it to enable implicit conversions between a user-defined type and another type, 
-        /// if the conversion is guaranteed not to cause a loss of data.
-        /// https://www.newsfilter.org/gallery/redhead-beauty-isnt-as-innocent-as-she-looks-207484
         /// </summary>
         private static void Test012()
         {

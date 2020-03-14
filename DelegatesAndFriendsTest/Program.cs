@@ -186,14 +186,14 @@ namespace DelegatesAndFriendsTest
             //--------------------------------------------------------
 
             //PREDICATE
-            // In this second example, we want return the books cheaper than 10 dolars
-            // B, the traditional way:
+            // LD_A, In this second example, we want return the books cheaper than 10 dolars
+            // LD_B, the traditional way:
             var books = new BookRepository().GetBooks();
 
-            // C, a PREDICATE its a DELEGATE that point to a method that get a "book" in this case and RETURN a boolean that say if a given condition is satisfied
+            // LD_C, a PREDICATE its a DELEGATE that point to a method that get a "book" in this case and RETURN a boolean that say if a given condition is satisfied
             // in this case I can call it like this:
             var cheapBooks = books.FindAll(IsCheaperThan10Dollars);
-            // D, by using LAMPDA EXPRESSION
+            // LD_D, by using LAMPDA EXPRESSION
             var cheapBooks2 = books.FindAll(b => b.price < 10);
 
             //--------------------------------------------------------
@@ -226,24 +226,25 @@ namespace DelegatesAndFriendsTest
         }
 
 
-        //LD TEST009 events and delegates
+        //LD TEST009 events and delegates. NOTE: is possible to achieve the same result with the code in "TEST007"
         private static void Test009()
         {
             //LD STEP 0 - call the class
             var video = new Video() { Title = "Video 1" };
-            var videoEncoder = new VideoEncoder(); //LD is the Publisher
+            //LD declaring the Publisher
+            var videoEncoder = new VideoEncoder(); 
+            //LD declaring the two Subscribers
+            var mailService = new MailService(); 
+            var messageService = new MessageService(); 
 
-            //LD STEP 5 - create a referiment to Subscriber
-            var mailService = new MailService(); //LD is the first Subscriber
-            var messageService = new MessageService(); //LD is the second Subscriber
+            //LD STEP 1 - doing subscription of the method to the specific EVENT
+            videoEncoder.VideoEncodedEvent += mailService.OnVideoEncoded;
+            videoEncoder.VideoEncodedEvent += messageService.OnVideoEncoded;
 
-            //LD STEP 6 - let's do the subscription of the method to the specific EVENT
-            videoEncoder.VideoEncoded += mailService.OnVideoEncoded;
-            videoEncoder.VideoEncoded += messageService.OnVideoEncoded;
-
-            //LD STEP 7 
+            //LD STEP 2 - firing the event
             videoEncoder.Encode(video);
-            //LD note that the PUBLICHER never change
+
+            //LD NOTE that the PUBLISHER never change
         }
 
 

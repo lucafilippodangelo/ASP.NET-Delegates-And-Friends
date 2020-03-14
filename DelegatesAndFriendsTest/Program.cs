@@ -176,15 +176,17 @@ namespace DelegatesAndFriendsTest
         //LD TEST008 lampda expression, predicate
         private static void Test008()
         {
-            // A, lampdaExpression sintax: "args => expression" , an example is "number => number*number"
-            // B, we need to assign it to a system DELEGATE "Func", in our case gets and returns an "int"
-            Func<int, int> myDelegateName = number => number * number;
+            // lampdaExpression sintax: "args => expression" 
+            // the system deledate takes in input two "int" and returns a string -> "Func<int, int, string>"
+            // we must specify the two input args -> "(numberOne, numberTwo)"
+            Func<int, int, string> myDelegateName = (numberOne, numberTwo) => (numberOne * numberTwo).ToString();
             // C, then we call it
-            Console.WriteLine(myDelegateName(6));
+            string ldTest = (myDelegateName(4,3));
 
             //--------------------------------------------------------
 
-            // A, we want return the books cheaper than 10 dolars
+            //PREDICATE
+            // In this second example, we want return the books cheaper than 10 dolars
             // B, the traditional way:
             var books = new BookRepository().GetBooks();
 
@@ -203,13 +205,10 @@ namespace DelegatesAndFriendsTest
             }
             var ddd = doSomething(1);
 
+            //--------------------------------------------------------
 
-            //TEST ON FUNC (delegate pointng to a method)
-            Func<int, int> myExp2 = (n) => n * n;
-            var yy = myExp2(5);
+            //TEST ON  EXPRESSION
 
-
-            //TEST ON NORMAL FUNC 
             Func<int, int> square = x => x * x;
             var aNumber = square(5);
 
@@ -217,20 +216,13 @@ namespace DelegatesAndFriendsTest
             System.Linq.Expressions.Expression<Func<int, int>> myExpression = x => x * x;
             var anExpression = myExpression;
 
-
             int[] numbers = { 2, 3, 4, 5 };
-            var squaredNumbers = numbers.Select(myExpression.Compile()); //apply for each number the expression
-            var squaredNumbersTwo = numbers.Select(x => x * x); //same as above
 
-            var dd = string.Join(" ", squaredNumbers);
-
-            List<int> aList = new List<int>() { 1, 2, 3 };
-            var hyjy = aList.Select(myExpression.Compile());
-            foreach (int anInt in hyjy)
-            {
-                var luca = anInt; //Output -> 1,4,9
-            }
-
+            //apply for each number the expression, expected -> 4,9,16,25
+            var squaredNumbers = numbers.Select(myExpression.Compile()); 
+            //same as above but with different sintax
+            var squaredNumbersTwo = numbers.Select(x => x * x); 
+            
         }
 
 

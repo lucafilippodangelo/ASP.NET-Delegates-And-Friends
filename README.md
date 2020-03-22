@@ -85,6 +85,8 @@ Scenario Two, "Running Total". Display running total of the above collection.
 
 ### //LD TEST012 Implicit Conversion
 
+### //LD TEST13 Covariance and contravariance
+In covariance and contravariance, variance means the capability to substitute a type with a more derived  type or less derived type in a context.
 
 ### Resources
 - multithreading
@@ -104,3 +106,5 @@ Scenario Two, "Running Total". Display running total of the above collection.
   - https://docs.microsoft.com/en-us/dotnet/api/system.func-2?view=netframework-4.7.2
 - Implicit Conversion
   - https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/implicit
+- Covariance and Contravariance
+  - https://putridparrot.com/blog/covariance-and-contravariance/

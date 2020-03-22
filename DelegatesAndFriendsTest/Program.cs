@@ -14,14 +14,16 @@ namespace DelegatesAndFriendsTest
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+            //Test006Bis();
             //Test007();
             //Test008();
             //Test009();
             //Test010();
             //Test011();
-            Test012();
+            //Test012();
+            Test013(); //Variance
 
-            //Test006Bis();
+            
             Console.ReadKey();
         }//LD Main
 
@@ -356,7 +358,7 @@ namespace DelegatesAndFriendsTest
             UserDefinedType udt = new UserDefinedType(5);
 
             //LD with the call below we are looking to receive a "double" and we are passing a "UserDefinedType"
-            // the framework will automatically call the method with that signature
+            // the framework will automatically call the method with that signature on the object in context "UserDefinedType"
             double num = udt;
 
             //VICEVERSA, This call invokes the implicit "UserDefinedType" operator, I want "UserDefinedType" starting from the int "5"
@@ -365,6 +367,98 @@ namespace DelegatesAndFriendsTest
             Console.WriteLine("num = {0} dig2 = {1}", num, udt2.aNumber);
             Console.ReadLine();
         }
+
+
+        // SUPPORT FOR //LDTEST013 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        class Base { }
+        class Derived : Base { }
+
+        interface IProcessorZero<in T>
+        {}
+        class ProcessorZero<T> : IProcessorZero<T>
+        {}
+
+        interface IProcessorOne<in T>  
+        {
+            void aMethod(T anInputParm);
+            //T anotherMethod(); // when "CONTRAVARIANCE" not allowed to return "T"
+        }
+        class ProcessorOne<T> : IProcessorOne<T>
+        {
+            public void aMethod(T anInputParm)
+            {
+                throw new NotImplementedException();
+            }
+
+            public T anotherMethod()
+            {
+                throw new NotImplementedException();
+            }
+        }
+  
+        interface IProcessorTwo<out T>  
+        {
+            //void aMethod(T anInputParm); // when "COVARIANCE" not allowed to input "T"
+            T anotherMethod();
+        }
+        class ProcessorTwo<T> : IProcessorTwo<T>
+        {
+            public void aMethod(T anInputParm)
+            {
+                throw new NotImplementedException();
+            }
+
+            public T anotherMethod()
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        //LDTEST013 Variance
+        private static void Test013()
+        {
+            // INVARIANT - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+            //If we try to convert an IProcessor<Derived> to an IProcessor<Base> or vice versa, we’ll get a compile time error, 
+            //i.e.here’s the code that we might be hoping to write
+
+            // (A) - Below we’re creating a Processor with the generic type Derived (in the first instance) and we might have a 
+            // (B) method that expects an IProcessor. In our example we simulate this with the assignment of d to b. 
+            // This will fail to compile. Likewise the opposite is where we try to 
+            // assign a IProcessor to an IProcessor, again this will fail to compile. At this point the IProcessor/Processor are invariant.
+
+            // Uncomment below to check
+            /* 
+            IProcessor<Derived> d = new Processor<Derived>(); //(A)
+            IProcessor<Base> b = d; //(B)
+            // or
+            IProcessor<Base> c = new Processor<Base>();
+            IProcessor<Derived> e = c;
+            */
+
+            // COVARIANCE - "out" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+            // Covariance is defined as enabling us to “use a more derived type than originally specified” or to put it another way.
+            // If we have an IList<Derived> we can assign this to a variable of type IList<Base>.
+
+            //If we add the out keyword to the interface though, this will fix the issue and make the Processor covariant.
+            // "interface IProcessorTwo<out T>"
+            // No changes need to be made on the implementation. Now our assignment from a derived type to a base type will succeed.
+            // NOTE: the "T" parm can be only returned by a method
+
+            IProcessorTwo<Derived> d = new ProcessorTwo<Derived>();
+            IProcessorTwo<Base> b = d;
+          
+
+            // CONTRAVARIANCE - "in" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+            // if covariance allows us to assign a derived type to a base type, contravariance allows us to “use a more generic (less derived) type than originally specified”.
+            // NOTE: the "T" parm can be only be get as an input by a method
+
+            // just need to use "interface IProcessorOne<in T>"
+
+            IProcessorOne<Base> c = new ProcessorOne<Base>();
+            IProcessorOne<Derived> e = c;
+ 
+        }
+
 
         #endregion
 
@@ -376,5 +470,7 @@ namespace DelegatesAndFriendsTest
         }
 
         #endregion
+
+
     }
 }

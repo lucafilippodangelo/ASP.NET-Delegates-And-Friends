@@ -98,6 +98,7 @@ In covariance and contravariance, variance means the capability to substitute a 
     - NOTE: the "T" parm can be only be get as an input by a method
     - EXAMPLE IN CODE
 
+### //LD TEST14 Asynchronous programming with async and await
 
 
 ### Resources
@@ -120,3 +121,5 @@ In covariance and contravariance, variance means the capability to substitute a 
   - https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/implicit
 - Covariance and Contravariance
   - https://putridparrot.com/blog/covariance-and-contravariance/
+- Asynchronous programming with async and await
+  - https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/

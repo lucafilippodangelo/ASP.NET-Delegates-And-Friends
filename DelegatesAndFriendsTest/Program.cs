@@ -6,6 +6,7 @@ using ExtensionMethodsLd;
 using System.Collections.Generic;
 using DelegatesAndFriendsTest.Suppost_Classes;
 using DelegatesAndFriendsTest.GenericsSupportClasses;
+using System.Threading.Tasks;
 
 namespace DelegatesAndFriendsTest
 {
@@ -21,9 +22,9 @@ namespace DelegatesAndFriendsTest
             //Test010();
             //Test011();
             //Test012();
-            Test013(); //Variance
+            //Test013(); // Variance Contravariance
+            Test014(); // TAsks
 
-            
             Console.ReadKey();
         }//LD Main
 
@@ -414,10 +415,10 @@ namespace DelegatesAndFriendsTest
             }
         }
 
-        //LDTEST013 Variance
+        //LDTEST013 Variance Contravariance
         private static void Test013()
         {
-            // //LD Test013_001 INVARIANT - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+            //LD Test013_001 INVARIANT - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
             //If we try to convert an IProcessor<Derived> to an IProcessor<Base> or vice versa, we’ll get a compile time error, 
             //i.e.here’s the code that we might be hoping to write
 
@@ -457,6 +458,72 @@ namespace DelegatesAndFriendsTest
             IProcessorOne<Base> c = new ProcessorOne<Base>();
             IProcessorOne<Derived> e = c;
  
+        }
+
+        //LD Test014 Support Methods - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        public static int PourCoffee()
+        {
+            int hours = 0;
+            Console.WriteLine(DateTime.Now.TimeOfDay.ToString() + " PourCoffee Done");
+            return hours;
+        }
+
+        public static int ApplyButter(bool toast)
+        {
+            int hours = 0;
+            Console.WriteLine(DateTime.Now.TimeOfDay.ToString() + " ApplyButter Done");
+            return hours;
+        }
+
+        public static int ApplyJam(bool toast)
+        {
+            int hours = 0;
+            Console.WriteLine(DateTime.Now.TimeOfDay.ToString() + " ApplyJam Done");
+            return hours;
+        }
+
+        public static async Task<bool> ToastBread(int delay)
+        {
+            await Task.Delay(delay);
+            // Return statement specifies an integer result.
+            return true;
+        }
+
+        public static async Task<bool> FryEggs(int delay)
+        {
+            await Task.Delay(delay);
+            // Return statement specifies an integer result.
+            return true;
+        }
+
+        public static async Task<bool> FryBacon(int delay)
+        {
+            await Task.Delay(delay);
+            // Return statement specifies an integer result.
+            return true;
+        }
+
+        private static async Task Test014()
+        {
+            var cup = PourCoffee();
+            Console.WriteLine(DateTime.Now.TimeOfDay.ToString() + " coffee is ready");
+            
+            var eggs = await FryEggs(6000);
+            Console.WriteLine(DateTime.Now.TimeOfDay.ToString() + " eggs are ready");
+            
+            var bacon = await FryBacon(3000);
+            Console.WriteLine(DateTime.Now.TimeOfDay.ToString() + " bacon is ready");
+            
+            var toast = await ToastBread(5000);
+            Console.WriteLine(DateTime.Now.TimeOfDay.ToString() + " Outside Toast");
+
+            ApplyButter(toast);
+
+            ApplyJam(toast);
+
+            Console.WriteLine(DateTime.Now.TimeOfDay.ToString() + " toast is ready");
+
+            Console.WriteLine(DateTime.Now.TimeOfDay.ToString() + " Breakfast is ready!");
         }
 
 

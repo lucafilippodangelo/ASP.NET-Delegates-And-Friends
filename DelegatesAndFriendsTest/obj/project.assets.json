@@ -33,11 +33,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lucaf\\Source\\Repos\\ASP.NET-Delegates-And-Friends\\DelegatesAndFriendsTest\\DelegatesAndFriendsTest.csproj",
+      "projectUniqueName": "C:\\Users\\lucaf\\source\\repos\\ASP.NET-Delegates-And-Friends\\DelegatesAndFriendsTest\\DelegatesAndFriendsTest.csproj",
       "projectName": "DelegatesAndFriendsTest",
-      "projectPath": "C:\\Users\\lucaf\\Source\\Repos\\ASP.NET-Delegates-And-Friends\\DelegatesAndFriendsTest\\DelegatesAndFriendsTest.csproj",
+      "projectPath": "C:\\Users\\lucaf\\source\\repos\\ASP.NET-Delegates-And-Friends\\DelegatesAndFriendsTest\\DelegatesAndFriendsTest.csproj",
       "packagesPath": "C:\\Users\\lucaf\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lucaf\\Source\\Repos\\ASP.NET-Delegates-And-Friends\\DelegatesAndFriendsTest\\obj\\",
+      "outputPath": "C:\\Users\\lucaf\\source\\repos\\ASP.NET-Delegates-And-Friends\\DelegatesAndFriendsTest\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -56,8 +56,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\lucaf\\Source\\Repos\\ASP.NET-Delegates-And-Friends\\ExtensionMethods\\ExtensionMethodsLd.csproj": {
-              "projectPath": "C:\\Users\\lucaf\\Source\\Repos\\ASP.NET-Delegates-And-Friends\\ExtensionMethods\\ExtensionMethodsLd.csproj"
+            "C:\\Users\\lucaf\\source\\repos\\ASP.NET-Delegates-And-Friends\\ExtensionMethods\\ExtensionMethodsLd.csproj": {
+              "projectPath": "C:\\Users\\lucaf\\source\\repos\\ASP.NET-Delegates-And-Friends\\ExtensionMethods\\ExtensionMethodsLd.csproj"
             }
           }
         }

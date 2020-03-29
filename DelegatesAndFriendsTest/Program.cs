@@ -417,7 +417,7 @@ namespace DelegatesAndFriendsTest
         //LDTEST013 Variance
         private static void Test013()
         {
-            // INVARIANT - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+            // //LD Test013_001 INVARIANT - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
             //If we try to convert an IProcessor<Derived> to an IProcessor<Base> or vice versa, we’ll get a compile time error, 
             //i.e.here’s the code that we might be hoping to write
 
@@ -435,7 +435,7 @@ namespace DelegatesAndFriendsTest
             IProcessor<Derived> e = c;
             */
 
-            // COVARIANCE - "out" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+            //LD Test013_002 COVARIANCE - "out" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
             // Covariance is defined as enabling us to “use a more derived type than originally specified” or to put it another way.
             // If we have an IList<Derived> we can assign this to a variable of type IList<Base>.
 
@@ -446,9 +446,9 @@ namespace DelegatesAndFriendsTest
 
             IProcessorTwo<Derived> d = new ProcessorTwo<Derived>();
             IProcessorTwo<Base> b = d;
-          
 
-            // CONTRAVARIANCE - "in" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+            //LD Test013_003 CONTRAVARIANCE - "in" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
             // if covariance allows us to assign a derived type to a base type, contravariance allows us to “use a more generic (less derived) type than originally specified”.
             // NOTE: the "T" parm can be only be get as an input by a method
 
